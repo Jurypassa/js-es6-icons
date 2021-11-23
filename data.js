@@ -114,22 +114,33 @@ const icone = [
 ];
 
 
-icone.forEach((element) =>{
-	document.querySelector(".container").innerHTML += `
-	<div class="box">
-		<i class="element ${element.family} ${element.prefix}${element.name}"></i>
-		<div id="name">${element.name}</div>
-	</div>
-	`;
+const selected = document.getElementById("selected");
+const all = document.getElementById("all").value;
+const animal = document.getElementById("animal").value;
+const vegetable = document.getElementById("vegetable").value;
+const user = document.getElementById("user").value;
+
+selected.addEventListener('change', (event) => {
 	
-	const colore = document.querySelector(".element");
-	if(element.color == "blue"){
-		colore.classList.add("blue");
-	}else if(element.color == "orange"){
-		colore.classList.add("orange");
-	}else{
-		colore.classList.add("green");
-	};
-	console.log(colore);
-});
+	icone.forEach((element) =>{
+		document.querySelector(".container").innerHTML += `
+		<div class="box">
+			// <i class="element ${element.family} ${element.prefix}${element.name} ${element.color} ${element.type}"></i>
+			<div id="name">${element.name}</div>
+		</div>
+		`;
+		
+		if(element.color == "blue"){
+			return "blue";
+		}else if(element.color == "orange"){
+			return "orange";
+		}else{
+			return "green";
+		};
+		
+		
+	});
+
+
+
 
