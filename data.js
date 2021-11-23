@@ -1,4 +1,4 @@
-[
+const icone = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,24 @@
 		color: 'blue'
 	}
 ];
+
+
+icone.forEach((element) =>{
+	document.querySelector(".container").innerHTML += `
+	<div class="box">
+		<i class="element ${element.family} ${element.prefix}${element.name}"></i>
+		<div id="name">${element.name}</div>
+	</div>
+	`;
+	
+	const colore = document.querySelector(".element");
+	if(element.color == "blue"){
+		colore.classList.add("blue");
+	}else if(element.color == "orange"){
+		colore.classList.add("orange");
+	}else{
+		colore.classList.add("green");
+	};
+	console.log(colore);
+});
+
